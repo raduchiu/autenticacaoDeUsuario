@@ -1,0 +1,16 @@
+import { Router } from 'express';
+
+import UserController from './app/controllers/UserController';
+import SessionController from './app/controllers/SessionController';
+import authMiddleware from './app/middlewares/auth';
+
+const routes = new Router();
+// criando a rota para criação de um novo usuário
+routes.post('/users', UserController.store);
+routes.post('/sessions', SessionController.store);
+// deixando a usabilidade apenas pra sessões já iniciadas
+routes.use(authMiddleware);
+
+routes.put('/users', UserController.update);
+
+export default routes;
