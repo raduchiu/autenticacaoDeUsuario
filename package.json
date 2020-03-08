@@ -1,11 +1,12 @@
 {
-  "name": "modulo02",
+  "name": "api-authenticate",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "server.js",
   "license": "MIT",
   "scripts": {
     "dev": "nodemon src/server.js",
-    "dev:debug": "nodemon --inspect src/server.js"
+    "dev:debug": "nodemon --inspect src/server.js",
+    "build": "sucrase ./src -d /build --transforms javascript,imports"
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",
