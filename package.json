@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "nodemon src/server.js",
     "dev:debug": "nodemon --inspect src/server.js",
-    "build": "sucrase ./src -d /build --transforms javascript,imports"
+    "build": "sucrase ./src -d ./build --transforms imports"
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",
