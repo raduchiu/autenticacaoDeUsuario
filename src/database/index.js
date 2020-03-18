@@ -11,7 +11,8 @@ class Database {
 
   init() {
     // criando conexão com o banco de dado
-    this.connection = new Sequelize(databaseConfig);
+    this.connection = process.env.NODE_ENV === 'development' ? new Sequelize(databaseConfig) :
+      new Sequelize(process.env.DATABASE_URL, databaseConfig);
     // percorrer (utilizando a função map) os models e os conecta um a um
     models.map(model => model.init(this.connection));
   }
